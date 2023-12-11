@@ -21,7 +21,7 @@ def inject_config(param_value_pairs):
             for p, v in param_value_pairs.items():
                 file.write(p + "=" + v + "\n")
             file.close()
-    elif project in [FLINK]:
+    elif project in [FLINK, FLINK_CLIENTS, FLINK_KUBERNETES, FLINK_SCALA_SHELL]:
         for inject_path in INJECTION_PATH[project]:
             print(">>>>[ctest_core] injecting into file: {}".format(inject_path))
             file = open(inject_path, "w")
@@ -48,7 +48,7 @@ def inject_config(param_value_pairs):
 
 def clean_conf_file(project):
     print(">>>> cleaning injected configuration from file")
-    if project in [ZOOKEEPER, ALLUXIO, FLINK]:
+    if project in [ZOOKEEPER, ALLUXIO, FLINK, FLINK_CLIENTS, FLINK_KUBERNETES, FLINK_SCALA_SHELL]:
         for inject_path in INJECTION_PATH[project]:
             file = open(inject_path, "w")
             file.write("\n")

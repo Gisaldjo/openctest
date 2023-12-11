@@ -1,0 +1,8 @@
+{
+  "org.apache.flink.kubernetes.cli.KubernetesSessionCliTest#testDynamicProperties": [
+    "execution.target"
+  ],
+  "org.apache.flink.kubernetes.cli.KubernetesSessionCliTest#testKubernetesSessionCliSetsDeploymentTargetCorrectly": [
+    "execution.target"
+  ]
+}

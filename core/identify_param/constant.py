@@ -8,13 +8,19 @@ CTEST_HBASE_DIR = os.path.join(APP_DIR, "ctest-hbase")
 CTEST_ZOOKEEPER_DIR = os.path.join(APP_DIR, "ctest-zookeeper")
 CTEST_ALLUXIO_DIR = os.path.join(APP_DIR, "ctest-alluxio")
 CTEST_FLINK_DIR = os.path.join(APP_DIR, "ctest-flink")
+CTEST_FLINK_CLIENTS_DIR = os.path.join(APP_DIR, "ctest-flink-clients")
+CTEST_FLINK_KUBERNETES_DIR = os.path.join(APP_DIR, "ctest-flink-kubernetes")
+CTEST_FLINK_SCALA_SHELL_DIR = os.path.join(APP_DIR, "ctest-flink-scala-shell")
 
 MODULE_PATH = {
     "hadoop-common": CTEST_HADOOP_DIR,
     "hadoop-hdfs": CTEST_HADOOP_DIR,
     "hbase-server": CTEST_HBASE_DIR,
     "alluxio-core": CTEST_ALLUXIO_DIR,
-    "flink-core": CTEST_FLINK_DIR
+    "flink-core": CTEST_FLINK_DIR,
+    "flink-clients": CTEST_FLINK_CLIENTS_DIR,
+    "flink-kubernetes": CTEST_FLINK_KUBERNETES_DIR,
+    "flink-scala-shell": CTEST_FLINK_SCALA_SHELL_DIR
 }
 
 SRC_SUBDIR = {
@@ -23,7 +29,10 @@ SRC_SUBDIR = {
     "hbase-server": "hbase-server",
     "zookeeper-server": "zookeeper-server",
     "alluxio-core": "core",
-    "flink-core": "flink-core"
+    "flink-core": "flink-core",
+    "flink-clients": "flink-clients",
+    "flink-kubernetes": "flink-kubernetes",
+    "flink-scala-shell": "flink-scala-shell"
 }
 
 MVN_TEST_PATH = {
@@ -33,6 +42,9 @@ MVN_TEST_PATH = {
     "zookeeper-server": os.path.join(CTEST_ZOOKEEPER_DIR, SRC_SUBDIR["zookeeper-server"]),
     "alluxio-core": os.path.join(CTEST_ALLUXIO_DIR, SRC_SUBDIR["alluxio-core"]),
     "flink-core": os.path.join(CTEST_FLINK_DIR, SRC_SUBDIR["flink-core"]),
+    "flink-clients": os.path.join(CTEST_FLINK_CLIENTS_DIR, SRC_SUBDIR["flink-clients"]),
+    "flink-kubernetes": os.path.join(CTEST_FLINK_KUBERNETES_DIR, SRC_SUBDIR["flink-kubernetes"]),
+    "flink-scala-shell": os.path.join(CTEST_FLINK_SCALA_SHELL_DIR, SRC_SUBDIR["flink-scala-shell"])
 }
 
 LOCAL_CONF_PATH = {
@@ -41,7 +53,10 @@ LOCAL_CONF_PATH = {
     "hbase-server": "results/hbase-server/conf_params.txt",
     "zookeeper-server": "results/zookeeper-server/conf_params.txt",
     "alluxio-core": "results/alluxio-core/conf_params.txt",
-    "flink-core": "results/flink-core/conf_params.txt"
+    "flink-core": "results/flink-core/conf_params.txt",
+    "flink-clients": "results/flink-clients/conf_params.txt",
+    "flink-kubernetes": "results/flink-kubernetes/conf_params.txt",
+    "flink-scala-shell": "results/flink-scala-shell/conf_params.txt"
 }
 
 SUREFIRE_SUBDIR = "target/surefire-reports/*"
@@ -71,6 +86,15 @@ CTEST_SUREFIRE_PATH = {
     ],
     "flink-core": [
         os.path.join(CTEST_FLINK_DIR, "flink-core", SUREFIRE_SUBDIR)
+    ],
+    "flink-clients": [
+        os.path.join(CTEST_FLINK_CLIENTS_DIR, "flink-clients", SUREFIRE_SUBDIR)
+    ],
+    "flink-kubernetes": [
+        os.path.join(CTEST_FLINK_KUBERNETES_DIR, "flink-kubernetes", SUREFIRE_SUBDIR)
+    ],
+    "flink-scala-shell": [
+        os.path.join(CTEST_FLINK_SCALA_SHELL_DIR, "flink-scala-shell", SUREFIRE_SUBDIR)
     ]
 }
 
@@ -94,5 +118,14 @@ LOCAL_SUREFIRE_PATH = {
     ],
     "flink-core": [
         os.path.join("surefire-reports/flink-core", LOCAL_SUREFIRE_SUFFIX)
+    ],
+    "flink-clients": [
+        os.path.join("surefire-reports/flink-clients", LOCAL_SUREFIRE_SUFFIX)
+    ],
+    "flink-kubernetes": [
+        os.path.join("surefire-reports/flink-kubernetes", LOCAL_SUREFIRE_SUFFIX)
+    ],
+    "flink-scala-shell": [
+        os.path.join("surefire-reports/flink-scala-shell", LOCAL_SUREFIRE_SUFFIX)
     ]
 }

@@ -1,0 +1,8 @@
+{
+    "org.apache.flink.client.cli.ExecutorCLITest#testExecutorInBaseConfigIsPickedUp": [
+      "execution.target"
+    ],
+    "org.apache.flink.client.cli.ExecutorCLITest#testWithPreexistingConfigurationInConstructor": [
+      "execution.target"
+    ]
+}

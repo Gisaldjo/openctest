@@ -55,6 +55,30 @@ function setup_flink() {
     mvn clean install -DskipTests
 }
 
+function setup_flink_clients() {
+    [ ! -d "app/ctest-flink-clients" ] && git clone https://github.com/Gisaldjo/flink.git app/ctest-flink-clients
+    cd app/ctest-flink-clients
+    git fetch && git checkout ctest-get-set
+    cd flink-clients
+    mvn clean install -DskipTests
+}
+
+function setup_flink_kubernetes() {
+    [ ! -d "app/ctest-flink-kubernetes" ] && git clone https://github.com/Gisaldjo/flink.git app/ctest-flink-kubernetes
+    cd app/ctest-flink-kubernetes
+    git fetch && git checkout ctest-get-set
+    cd flink-kubernetes
+    mvn clean install -DskipTests
+}
+
+function setup_flink_scala_shell() {
+    [ ! -d "app/ctest-flink-scala-shell" ] && git clone https://github.com/Gisaldjo/flink.git app/ctest-flink-scala-shell
+    cd app/ctest-flink-scala-shell
+    git fetch && git checkout ctest-get-set
+    cd flink-scala-shell
+    mvn clean install -DskipTests
+}
+
 function usage() {
     echo "Usage: add_project.sh <main project>"
     exit 1
@@ -72,6 +96,9 @@ function main() {
             zookeeper) setup_zookeeper ;;
             alluxio) setup_alluxio ;;
             flink) setup_flink ;;
+            flink-clients) setup_flink_clients ;;
+            flink-kubernetes) setup_flink_kubernetes ;;
+            flink-scala-shell) setup_flink_scala_shell ;;
             *) echo "Unexpected project: $project - only support hadoop, hbase, zookeeper, alluxio and flink." ;;
         esac
     fi

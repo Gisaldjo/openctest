@@ -1,0 +1,4 @@
+org.apache.flink.api.java.FlinkILoopTest#testConfigurationForwarding jobmanager.rpc.address
+org.apache.flink.api.java.FlinkILoopTest#testConfigurationForwarding jobmanager.rpc.port
+org.apache.flink.api.java.FlinkILoopTest#testConfigurationForwardingStreamEnvironment jobmanager.rpc.address
+org.apache.flink.api.java.FlinkILoopTest#testConfigurationForwardingStreamEnvironment jobmanager.rpc.port

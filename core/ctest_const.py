@@ -13,12 +13,18 @@ HBASE = "hbase-server"
 ZOOKEEPER = "zookeeper-server"
 ALLUXIO = "alluxio-core"
 FLINK = "flink-core"
+FLINK_CLIENTS = "flink-clients"
+FLINK_KUBERNETES = "flink-kubernetes"
+FLINK_SCALA_SHELL = "flink-scala-shell"
 
 CTEST_HADOOP_DIR = os.path.join(APP_DIR, "ctest-hadoop")
 CTEST_HBASE_DIR = os.path.join(APP_DIR, "ctest-hbase")
 CTEST_ZK_DIR = os.path.join(APP_DIR, "ctest-zookeeper")
 CTEST_ALLUXIO_DIR = os.path.join(APP_DIR, "ctest-alluxio")
 CTEST_FLINK_DIR = os.path.join(APP_DIR, "ctest-flink")
+CTEST_FLINK_CLIENTS_DIR = os.path.join(APP_DIR, "ctest-flink-clients")
+CTEST_FLINK_KUBERNETES_DIR = os.path.join(APP_DIR, "ctest-flink-kubernetes")
+CTEST_FLINK_SCALA_SHELL_DIR = os.path.join(APP_DIR, "ctest-flink-scala-shell")
 
 PROJECT_DIR = {
     HCOMMON: CTEST_HADOOP_DIR,
@@ -26,7 +32,10 @@ PROJECT_DIR = {
     HBASE: CTEST_HBASE_DIR,
     ZOOKEEPER: CTEST_ZK_DIR,
     ALLUXIO: CTEST_ALLUXIO_DIR,
-    FLINK: CTEST_FLINK_DIR
+    FLINK: CTEST_FLINK_DIR,
+    FLINK_CLIENTS: CTEST_FLINK_CLIENTS_DIR,
+    FLINK_KUBERNETES: CTEST_FLINK_KUBERNETES_DIR,
+    FLINK_SCALA_SHELL: CTEST_FLINK_SCALA_SHELL_DIR
 }
 
 
@@ -37,7 +46,10 @@ MODULE_SUBDIR = {
     HBASE: "hbase-server",
     ZOOKEEPER: "zookeeper-server",
     ALLUXIO: "core",
-    FLINK: "flink-core"
+    FLINK: "flink-core",
+    FLINK_CLIENTS: "flink-clients",
+    FLINK_KUBERNETES: "flink-kubernetes",
+    FLINK_SCALA_SHELL: "flink-scala-shell"
 }
 
 
@@ -62,7 +74,11 @@ SUREFIRE_DIR = {
         os.path.join(CTEST_ALLUXIO_DIR, MODULE_SUBDIR[ALLUXIO], "server/worker", SUREFIRE_SUBDIR),
         os.path.join(CTEST_ALLUXIO_DIR, MODULE_SUBDIR[ALLUXIO], "server/master", SUREFIRE_SUBDIR),
     ],
-    FLINK: [os.path.join(CTEST_FLINK_DIR, MODULE_SUBDIR[FLINK], SUREFIRE_SUBDIR)]
+    FLINK: [os.path.join(CTEST_FLINK_DIR, MODULE_SUBDIR[FLINK], SUREFIRE_SUBDIR)],
+    FLINK_CLIENTS: [os.path.join(CTEST_FLINK_CLIENTS_DIR, MODULE_SUBDIR[FLINK_CLIENTS], SUREFIRE_SUBDIR)],
+    FLINK_KUBERNETES: [os.path.join(CTEST_FLINK_KUBERNETES_DIR, MODULE_SUBDIR[FLINK_KUBERNETES], SUREFIRE_SUBDIR)],
+    FLINK_SCALA_SHELL: [os.path.join(CTEST_FLINK_SCALA_SHELL_DIR, MODULE_SUBDIR[FLINK_SCALA_SHELL], SUREFIRE_SUBDIR)]
+    
 }
 
 # default or deprecate conf path
@@ -80,7 +96,10 @@ DEFAULT_CONF_FILE = {
     HBASE: os.path.join(DEFAULT_CONF_DIR, HBASE + "-default.tsv"),
     ALLUXIO: os.path.join(DEFAULT_CONF_DIR, ALLUXIO + "-default.tsv"),
     ZOOKEEPER: os.path.join(DEFAULT_CONF_DIR, ZOOKEEPER + "-default.tsv"),
-    FLINK: os.path.join(DEFAULT_CONF_DIR, FLINK + "-default.tsv")
+    FLINK: os.path.join(DEFAULT_CONF_DIR, FLINK + "-default.tsv"),
+    FLINK_CLIENTS: os.path.join(DEFAULT_CONF_DIR, FLINK_CLIENTS + "-default.tsv"),
+    FLINK_KUBERNETES: os.path.join(DEFAULT_CONF_DIR, FLINK_KUBERNETES + "-default.tsv"),
+    FLINK_SCALA_SHELL: os.path.join(DEFAULT_CONF_DIR, FLINK_SCALA_SHELL + "-default.tsv")
 }
 
 
@@ -105,6 +124,15 @@ INJECTION_PATH = {
     ],
     FLINK: [
         os.path.join(CTEST_FLINK_DIR, "flink-core/core-ctest.yaml")
+    ],
+    FLINK_CLIENTS: [
+        os.path.join(CTEST_FLINK_CLIENTS_DIR, "flink-clients/core-ctest.yaml")
+    ],
+    FLINK_KUBERNETES: [
+        os.path.join(CTEST_FLINK_KUBERNETES_DIR, "flink-kubernetes/core-ctest.yaml")
+    ],
+    FLINK_SCALA_SHELL: [
+        os.path.join(CTEST_FLINK_SCALA_SHELL_DIR, "flink-scala-shell/core-ctest.yaml")
     ]
 }
 

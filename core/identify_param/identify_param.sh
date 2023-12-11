@@ -12,9 +12,9 @@ function main() {
       usage
     else
         case $project in
-            hadoop-common | hadoop-hdfs | hbase-server | zookeeper-server | alluxio-core | flink-core) python3 runner.py $project; python3 collector.py $project ;;
+            hadoop-common | hadoop-hdfs | hbase-server | zookeeper-server | alluxio-core | flink-core | flink-clients | flink-kubernetes | flink-scala-shell) python3 runner.py $project; python3 collector.py $project ;;
             -h | --help) usage ;;
-            *) echo "Unexpected project: $project - only support hadoop-common, hadoop-hdfs, hbase-server, zookeeper-server, alluxio-core and flink-core." ;;
+            *) echo "Unexpected project: $project - only support hadoop-common, hadoop-hdfs, hbase-server, zookeeper-server, alluxio-core, flink-core, flink-clients, flink-kubernetes, and flink-scala-shell." ;;
         esac
     fi
 }

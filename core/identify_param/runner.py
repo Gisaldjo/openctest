@@ -81,6 +81,15 @@ class Runner:
         if self.module == "flink-core":
             if "org.apache.flink.configuration" in trace and "Test" not in trace:
                 return True
+        if self.module == "flink-clients":
+            if "org.apache.flink.configuration" in trace and "Test" not in trace:
+                return True
+        if self.module == "flink-kubernetes":
+            if "org.apache.flink.configuration" in trace and "Test" not in trace:
+                return True
+        if self.module == "flink-scala-shell":
+            if "org.apache.flink.configuration" in trace and "Test" not in trace:
+                return True
         return False
 
     def setInTest(self, stacktrace):

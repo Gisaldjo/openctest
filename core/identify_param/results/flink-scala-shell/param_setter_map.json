@@ -1,0 +1,10 @@
+{
+  "jobmanager.rpc.address": [
+    "org.apache.flink.api.java.FlinkILoopTest#testConfigurationForwarding",
+    "org.apache.flink.api.java.FlinkILoopTest#testConfigurationForwardingStreamEnvironment"
+  ],
+  "jobmanager.rpc.port": [
+    "org.apache.flink.api.java.FlinkILoopTest#testConfigurationForwarding",
+    "org.apache.flink.api.java.FlinkILoopTest#testConfigurationForwardingStreamEnvironment"
+  ]
+}
